@@ -54,3 +54,4 @@ export function generateBirthdate(ageMin, ageMax) {
 
   const randomTimestamp = oldestTimestamp + Math.random() * (youngestTimestamp - oldestTimestamp);
   return new Date(randomTimestamp).toISOString();
+}
