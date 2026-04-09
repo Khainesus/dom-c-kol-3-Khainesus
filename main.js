@@ -1,13 +1,12 @@
 //TODO add imports if needed
-//TODO doc
+import { generateGender, generateName, generateSurname, generateWorkload, generateBirthdate } from "./src/employees.js";
+
 /**
  * The main function which calls the application.
- * Please, add specific description here for the application purpose.
+ * This function generates a list of employees with random data.
  * @param {object} dtoIn contains count of employees, age limit of employees {min, max}
  * @returns {Array} of employees
  */
-import { generateGender, generateName, generateSurname, generateWorkload, generateBirthdate } from "./src/employees.js";
-
 export function main(dtoIn) {
   
   // Empty array to store generated employees
