@@ -23,12 +23,19 @@ const femaleSurnames = ["Nováková", "Svobodová", "Novotná", "Dvořáková", 
 // Possible workload values in hours per week
 const workloads = [10, 20, 30, 40];
 
-// Randomly returns "male" or "female"
+/**
+ * Randomly returns "male" or "female"
+ * @returns {string} gender
+ */
 export function generateGender() {
   return Math.random() < 0.5 ? "male" : "female";
 }
 
-// Returns a random first name based on gender
+/**
+ * Returns a random first name based on gender
+ * @param {string} gender - "male" or "female"
+ * @returns {string} first name
+ */
 export function generateName(gender) {
   if (gender === "male") {
     return maleNames[Math.floor(Math.random() * maleNames.length)];
@@ -37,7 +44,11 @@ export function generateName(gender) {
   }
 }
 
-// Returns a random surname based on gender
+/**
+ * Returns a random surname based on gender
+ * @param {string} gender - "male" or "female"
+ * @returns {string} surname
+ */
 export function generateSurname(gender) {
   if (gender === "male") {
     return maleSurnames[Math.floor(Math.random() * maleSurnames.length)];
@@ -46,12 +57,20 @@ export function generateSurname(gender) {
   }
 }
 
-// Returns a random workload value from the workloads array
+/**
+ * Returns a random workload value
+ * @returns {number} workload in hours per week
+ */
 export function generateWorkload() {
   return workloads[Math.floor(Math.random() * workloads.length)];
 }
 
-// Returns a random birthdate in ISO format within the given age range
+/**
+ * Returns a random birthdate in ISO format within the given age range
+ * @param {number} ageMin - minimum age
+ * @param {number} ageMax - maximum age
+ * @returns {string} birthdate in ISO format
+ */
 export function generateBirthdate(ageMin, ageMax) {
   const today = new Date();
   
