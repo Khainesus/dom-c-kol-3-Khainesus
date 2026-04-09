@@ -1,3 +1,4 @@
+// Arrays of Czech male and female first names
 const maleNames = ["Jakub", "Tomáš", "Jan", "Martin", "Petr", "Lukáš", "Ondřej", "David", "Michal", "Pavel",
   "Jiří", "Radek", "Marek", "Filip", "Václav", "Stanislav", "Roman", "Miroslav", "Zdeněk", "Karel",
   "Jaroslav", "Josef", "Vojtěch", "Adam", "Dominik", "Patrik", "Richard", "Libor", "Miloslav",
@@ -8,6 +9,7 @@ const femaleNames = ["Jana", "Tereza", "Lucie", "Markéta", "Petra", "Kateřina"
   "Dagmar", "Eliška", "Gabriela", "Helena", "Ilona", "Jitka", "Kamila", "Ludmila", "Naděžda", "Olga",
   "Pavlína", "Radka"];
 
+// Arrays of Czech male and female surnames
 const maleSurnames = ["Novák", "Svoboda", "Novotný", "Dvořák", "Černý", "Procházka", "Kučera", "Veselý", "Horák", "Němec",
   "Pospíšil", "Marek", "Pokorný", "Hájek", "Jelínek", "Král", "Růžička", "Beneš", "Fišer", "Sedláček",
   "Doležal", "Zeman", "Kolář", "Navrátil", "Čermák", "Urban", "Blaha", "Kozák", "Kratochvíl", "Kovář",
@@ -18,12 +20,15 @@ const femaleSurnames = ["Nováková", "Svobodová", "Novotná", "Dvořáková", 
   "Doležalová", "Zemanová", "Kolářová", "Navrátilová", "Čermáková", "Urbanová", "Blahová", "Kozáková", "Kratochvílová", "Kovářová",
   "Málková", "Stehlíková"];
 
+// Possible workload values in hours per week
 const workloads = [10, 20, 30, 40];
 
+// Randomly returns "male" or "female"
 export function generateGender() {
   return Math.random() < 0.5 ? "male" : "female";
 }
 
+// Returns a random first name based on gender
 export function generateName(gender) {
   if (gender === "male") {
     return maleNames[Math.floor(Math.random() * maleNames.length)];
@@ -32,6 +37,7 @@ export function generateName(gender) {
   }
 }
 
+// Returns a random surname based on gender
 export function generateSurname(gender) {
   if (gender === "male") {
     return maleSurnames[Math.floor(Math.random() * maleSurnames.length)];
@@ -40,18 +46,24 @@ export function generateSurname(gender) {
   }
 }
 
+// Returns a random workload value from the workloads array
 export function generateWorkload() {
   return workloads[Math.floor(Math.random() * workloads.length)];
 }
 
+// Returns a random birthdate in ISO format within the given age range
 export function generateBirthdate(ageMin, ageMax) {
   const today = new Date();
+  
+  // Calculate the oldest and youngest allowed birthdates
   const oldestDate = new Date(today.getFullYear() - ageMax, today.getMonth(), today.getDate());
   const youngestDate = new Date(today.getFullYear() - ageMin, today.getMonth(), today.getDate());
-
+  
+  // Convert dates to timestamps and pick a random value between them
   const oldestTimestamp = oldestDate.getTime();
   const youngestTimestamp = youngestDate.getTime();
-
   const randomTimestamp = oldestTimestamp + Math.random() * (youngestTimestamp - oldestTimestamp);
+  
+  // Convert the random timestamp back to ISO format
   return new Date(randomTimestamp).toISOString();
 }
