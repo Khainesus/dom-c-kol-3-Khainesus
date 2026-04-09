@@ -27,7 +27,6 @@ export function main(dtoIn) {
     });
   }
   
-  console.log(employees);
   return employees;
 }
 
