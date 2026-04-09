@@ -26,7 +26,8 @@ export function main(dtoIn) {
       workload: workload,
     });
   }
-
+  
+  console.log(employees);
   return employees;
 }
 
