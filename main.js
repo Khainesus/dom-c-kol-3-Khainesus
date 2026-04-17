@@ -16,6 +16,9 @@ export function main(dtoIn) {
   if (!dtoIn || typeof dtoIn.count !== "number" || dtoIn.count <= 0) {
     throw new Error("Invalid input: count must be a positive number");
   }
+  if (!Number.isInteger(dtoIn.count)) {
+    throw new Error("Invalid input: count must be an integer");
+  }
   if (!dtoIn.age || typeof dtoIn.age.min !== "number" || typeof dtoIn.age.max !== "number") {
     throw new Error("Invalid input: age must contain min and max numbers");
   }
