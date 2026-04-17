@@ -22,9 +22,9 @@ export function main(dtoIn) {
   if (dtoIn.age.min >= dtoIn.age.max) {
     throw new Error("Invalid input: age.min must be less than age.max");
   }
-  if (dtoIn.age.min < 0) {
-    throw new Error("Invalid input: age.min cannot be negative");
-  }
+  if (dtoIn.age.min < 0 || dtoIn.age.max < 0) {
+    throw new Error("Invalid input: age.min and age.max cannot be negative");
+}
   
   // Empty array to store generated employees
   const employees = []; 
