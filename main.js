@@ -1,5 +1,5 @@
 //TODO add imports if needed
-import { generateGender, generateName, generateSurname, generateWorkload, generateBirthdate } from "./src/employees.js";
+import { generateGender, generateName, generateSurname, generateWorkload, generateBirthdate, validateInput } from "./src/employees.js";
 
 /**
  * The main function which generates a list of employees with random data.
@@ -12,25 +12,9 @@ import { generateGender, generateName, generateSurname, generateWorkload, genera
  */
 export function main(dtoIn) {
 
-  // Validate input
-  if (!dtoIn || typeof dtoIn.count !== "number" || dtoIn.count <= 0) {
-    throw new Error("Invalid input: count must be a positive number");
-  }
-  if (!Number.isInteger(dtoIn.count)) {
-    throw new Error("Invalid input: count must be an integer");
-  }
-  if (!dtoIn.age || typeof dtoIn.age.min !== "number" || typeof dtoIn.age.max !== "number") {
-    throw new Error("Invalid input: age must contain min and max numbers");
-  }
-  if (dtoIn.age.min >= dtoIn.age.max) {
-    throw new Error("Invalid input: age.min must be less than age.max");
-  }
-  if (dtoIn.age.min < 0 || dtoIn.age.max < 0) {
-    throw new Error("Invalid input: age.min and age.max must be a positive number");;
-  }
-  if (!Number.isInteger(dtoIn.age.min) || !Number.isInteger(dtoIn.age.max)) {
-    throw new Error("Invalid input: age.min and age.max must be integers");
-  }
+  // Calling the input validation function
+  validateInput(dtoIn);
+  
   // Empty array to store generated employees
   const employees = []; 
 
