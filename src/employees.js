@@ -97,18 +97,23 @@ export function generateBirthdate(ageMin, ageMax) {
  * @returns {void}
  */
 export function validateInput(dtoIn) {
+  // dtoIn does not exist
   if (!dtoIn) {
     throw new Error("Invalid input: dtoIn is missing");
   }
+  // count is not a positive integer
   if (typeof dtoIn.count !== "number" || !Number.isInteger(dtoIn.count) || dtoIn.count <= 0) {
     throw new Error("Invalid input: count must be a positive integer");
   }
+  // age.min or age.max is not a number
   if (!dtoIn.age || typeof dtoIn.age.min !== "number" || typeof dtoIn.age.max !== "number") {
     throw new Error("Invalid input: age must contain min and max numbers");
   }
+  // age.min is greater than or equal to age.max
   if (dtoIn.age.min >= dtoIn.age.max) {
     throw new Error("Invalid input: age.min must be less than age.max");
   }
+  // age.min or age.max is not a positive integer
   if (!Number.isInteger(dtoIn.age.min) || !Number.isInteger(dtoIn.age.max) || dtoIn.age.min < 0 || dtoIn.age.max < 0) {
     throw new Error("Invalid input: age.min and age.max must be positive integers");
   }
