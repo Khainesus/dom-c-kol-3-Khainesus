@@ -87,6 +87,15 @@ export function generateBirthdate(ageMin, ageMax) {
   return new Date(randomTimestamp).toISOString();
 }
 
+/**
+ * Validates the input object dtoIn
+ * @param {object} dtoIn - contains count of employees and age limit of employees
+ * @param {number} dtoIn.count - number of employees to generate
+ * @param {object} dtoIn.age - age range for employees
+ * @param {number} dtoIn.age.min - minimum age of employees
+ * @param {number} dtoIn.age.max - maximum age of employees
+ * @returns {void}
+ */
 export function validateInput(dtoIn) {
   if (!dtoIn) {
     throw new Error("Invalid input: dtoIn is missing");
