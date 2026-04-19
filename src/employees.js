@@ -86,3 +86,30 @@ export function generateBirthdate(ageMin, ageMax) {
   // Convert the random timestamp back to ISO format
   return new Date(randomTimestamp).toISOString();
 }
+
+export function validateInput(dtoIn) {
+  if (!dtoIn) {
+    throw new Error("Invalid input: dtoIn is missing");
+  }
+  if (typeof dtoIn.count !== "number") {
+    throw new Error("Invalid input: count must be a number");
+  }
+  if (dtoIn.count <= 0) {
+    throw new Error("Invalid input: count cannot be negative or zero");
+  }
+  if (!Number.isInteger(dtoIn.count)) {
+    throw new Error("Invalid input: count must be an integer");
+  }
+  if (!dtoIn.age || typeof dtoIn.age.min !== "number" || typeof dtoIn.age.max !== "number") {
+    throw new Error("Invalid input: age must contain min and max numbers");
+  }
+  if (dtoIn.age.min >= dtoIn.age.max) {
+    throw new Error("Invalid input: age.min must be less than age.max");
+  }
+  if (dtoIn.age.min < 0 || dtoIn.age.max < 0) {
+    throw new Error("Invalid input: age.min and age.max cannot be negative");
+  }
+  if (!Number.isInteger(dtoIn.age.min) || !Number.isInteger(dtoIn.age.max)) {
+    throw new Error("Invalid input: age.min and age.max must be integers");
+  }
+}
