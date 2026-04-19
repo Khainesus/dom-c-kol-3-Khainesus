@@ -114,7 +114,7 @@ export function validateInput(dtoIn) {
     throw new Error("Invalid input: age.min must be less than age.max");
   }
   // age.min or age.max is not a positive integer
-  if (!Number.isInteger(dtoIn.age.min) || !Number.isInteger(dtoIn.age.max) || dtoIn.age.min < 0 || dtoIn.age.max < 0) {
-    throw new Error("Invalid input: age.min and age.max must be positive integers");
+  if (dtoIn.age.min < 0 || dtoIn.age.max < 0) {
+    throw new Error("Invalid input: age.min and age.max must be positive");
   }
 }
