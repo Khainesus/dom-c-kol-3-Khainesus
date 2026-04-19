@@ -100,14 +100,8 @@ export function validateInput(dtoIn) {
   if (!dtoIn) {
     throw new Error("Invalid input: dtoIn is missing");
   }
-  if (typeof dtoIn.count !== "number") {
-    throw new Error("Invalid input: count must be a number");
-  }
-  if (dtoIn.count <= 0) {
-    throw new Error("Invalid input: count cannot be negative or zero");
-  }
-  if (!Number.isInteger(dtoIn.count)) {
-    throw new Error("Invalid input: count must be an integer");
+  if (typeof dtoIn.count !== "number" || !Number.isInteger(dtoIn.count) || dtoIn.count <= 0) {
+    throw new Error("Invalid input: count must be a positive integer");
   }
   if (!dtoIn.age || typeof dtoIn.age.min !== "number" || typeof dtoIn.age.max !== "number") {
     throw new Error("Invalid input: age must contain min and max numbers");
