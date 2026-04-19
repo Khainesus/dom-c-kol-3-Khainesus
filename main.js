@@ -31,7 +31,6 @@ export function main(dtoIn) {
   if (!Number.isInteger(dtoIn.age.min) || !Number.isInteger(dtoIn.age.max)) {
     throw new Error("Invalid input: age.min and age.max must be integers");
   }
-  
   // Empty array to store generated employees
   const employees = []; 
 
@@ -60,7 +59,6 @@ export function main(dtoIn) {
       workload: workload,
     });
   }
-
   // Return the complete list of employees
   return employees;
 }
